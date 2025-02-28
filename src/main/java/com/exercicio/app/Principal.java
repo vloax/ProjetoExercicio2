@@ -11,17 +11,6 @@ import com.exercicio.model.Cachorro;
 
 public class Principal {
 
-    public static int showMenu() {
-        System.out.println("=== Menu ===");
-        System.out.println("1 - Listar");
-        System.out.println("2 - Inserir");
-        System.out.println("3 - Excluir");
-        System.out.println("4 - Atualizar");
-        System.out.println("5 - Sair");
-        System.out.print("Escolha uma opção: ");
-        return Integer.parseInt(new Scanner(System.in).nextLine());
-    }
-
     public static void main(String[] args) {
         CachorroDAO dao = new CachorroDAO();
         Scanner scanner = new Scanner(System.in);
@@ -29,8 +18,16 @@ public class Principal {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         do {
+            System.out.println("=== Menu ===");
+            System.out.println("1 - Listar");
+            System.out.println("2 - Inserir");
+            System.out.println("3 - Excluir");
+            System.out.println("4 - Atualizar");
+            System.out.println("5 - Sair");
+            System.out.print("Escolha uma opção: ");
+
             try {
-                showMenu();
+                opcao = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Opção inválida!");
                 continue;
